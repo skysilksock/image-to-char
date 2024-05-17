@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Vite + TS</title>
+</head>
+
+<body>
+	<h3>这里像坟墓一样简洁</h3>
+	<br>
+	<button id="card">上传</button>
+	<div class="slider-container">
+		<label for="fontSize">宽度</label>
+		<input type="range" id="fontSize" min="0" max="30" step="0.01" value="15">
+	</div>
+	<div class="slider-container">
+		<label for="lineHeight">高度</label>
+		<input type="range" id="lineHeight" min="0" max="30" step="0.01" value="15">
+	</div>
+	<div id="app">
+		<!-- <div class="output" id="output"></div> -->
+		<div id="result"></div>
+		<script type="module" src="/src/main.ts"></script>
+	</div>
+</body>
+
+<script>
+	document.body.style.fontFamily = "monospace";
+	const resultBox = document.getElementById('result');
+	const fontSizeSlider = document.getElementById('fontSize');
+	const lineHeightSlider = document.getElementById('lineHeight');
+	const output = document.getElementById('output');
+
+	fontSizeSlider.oninput = function () {
+		resultBox.style.fontSize = `${this.value}px`;
+		// resultBox.style.setProperty('--sx', `scaleX(${this.value})`);
+		// output.innerHTML = `字体大小：${this.value}px，行高：${lineHeightSlider.value}`;
+	}
+
+	lineHeightSlider.oninput = function () {
+		resultBox.style.lineHeight = `${this.value}px`;
+		// resultBox.style.setProperty('--sy', `scaleY(${this.value})`);
+		// output.innerHTML = `字体大小：${fontSizeSlider.value}px，行高：${this.value}`;
+	}
+
+	// 初始输出值
+	// output.innerHTML = `字体大小：${fontSizeSlider.value}px，行高：${lineHeightSlider.value}`;
+</script>
+
+<style>
+	.slider-container {
+		width: 50%;
+	}
+
+	.slider-container input {
+		width: 100%;
+	}
+
+	#result {
+		--sx: scaleX(1);
+		--sy: scaleY(1);
+		transform: var(--sx) var(--sy);
+		font-size: 15px;
+		line-height: 15px;
+	}
+</style>
+
+</html>
