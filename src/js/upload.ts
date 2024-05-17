@@ -1,7 +1,6 @@
 
-// const preUrl = "http://112.74.72.34:5002/api";
 const preUrl = "http://localhost:5003/api";
-// const preUrl = "http://192.168.43.48:5002/api";
+
 export function uploadPicture(element: HTMLButtonElement) {
     element.addEventListener('click', () => {
         // 创建链接使用户上传图片
